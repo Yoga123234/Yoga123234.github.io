@@ -1,1 +1,26 @@
+# Nama file: nagih_hutang.py
+import time
 
+def hutang_reminder(nama_peminjam, jumlah_hutang):
+    pesan_lucu = [
+        f"Halo {nama_peminjam}, uang kamu yang Rp {jumlah_hutang} lagi kangen sama dompet aku nih.",
+        f"Hei {nama_peminjam}, katanya bayar hutang bikin panjang umur. Yuk, coba deh!",
+        f"Halo {nama_peminjam}, aku kirim sinyal lewat Wi-Fi nih. Ingat hutang Rp {jumlah_hutang}-nya ya!",
+        f"{nama_peminjam}, katanya cinta itu ikhlas, tapi bayar hutang itu wajib. Jangan lupa, ya!",
+        f"Halo {nama_peminjam}, hutang Rp {jumlah_hutang} itu bukan kenangan, jadi jangan disimpan lama-lama!"
+    ]
+
+    print("=== Pengingat Hutang ===")
+    for pesan in pesan_lucu:
+        print(pesan)
+        time.sleep(2)  # Memberi jeda untuk efek dramatis
+
+if __name__ == "__main__":
+    nama = input("Masukkan nama peminjam: ")
+    hutang = input("Masukkan jumlah hutang (Rp): ")
+    
+    try:
+        hutang = float(hutang)
+        hutang_reminder(nama, hutang)
+    except ValueError:
+        print("Masukkan jumlah hutang dalam angka ya!")
