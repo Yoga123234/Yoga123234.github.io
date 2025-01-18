@@ -1,26 +1,59 @@
-# Nama file: nagih_hutang.py
-import time
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penagih Hutang Lucu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            color: #e63946;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            background-color: #38b6ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1d84ce;
+        }
+        .alert {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #e63946;
+        }
+    </style>
+</head>
+<body>
+    <h1>Halo, Si Tukang Ngutang!</h1>
+    <p>Aku nggak lupa kok, ada nama kamu di buku hutangku. Jangan khawatir, aku nggak bakal unfollow kamu... asal bayar hutang!</p>
+    <button onclick="tagihHutang()">Bayar Sekarang!</button>
+    <div class="alert" id="pesan"></div>
 
-def hutang_reminder(nama_peminjam, jumlah_hutang):
-    pesan_lucu = [
-        f"Halo {nama_peminjam}, uang kamu yang Rp {jumlah_hutang} lagi kangen sama dompet aku nih.",
-        f"Hei {nama_peminjam}, katanya bayar hutang bikin panjang umur. Yuk, coba deh!",
-        f"Halo {nama_peminjam}, aku kirim sinyal lewat Wi-Fi nih. Ingat hutang Rp {jumlah_hutang}-nya ya!",
-        f"{nama_peminjam}, katanya cinta itu ikhlas, tapi bayar hutang itu wajib. Jangan lupa, ya!",
-        f"Halo {nama_peminjam}, hutang Rp {jumlah_hutang} itu bukan kenangan, jadi jangan disimpan lama-lama!"
-    ]
-
-    print("=== Pengingat Hutang ===")
-    for pesan in pesan_lucu:
-        print(pesan)
-        time.sleep(2)  # Memberi jeda untuk efek dramatis
-
-if __name__ == "__main__":
-    nama = input("Masukkan nama peminjam: ")
-    hutang = input("Masukkan jumlah hutang (Rp): ")
-    
-    try:
-        hutang = float(hutang)
-        hutang_reminder(nama, hutang)
-    except ValueError:
-        print("Masukkan jumlah hutang dalam angka ya!")
+    <script>
+        function tagihHutang() {
+            const pesan = document.getElementById('pesan');
+            const randomPesan = [
+                "Hutang dibayar, pertemanan lancar!",
+                "Aku butuh bayar cicilan nih, tolong ya~",
+                "Bunga hutangnya sih nggak ada, tapi ingat dosa!",
+                "Bayar hutang sekarang, traktiran nanti!",
+                "Utangmu bikin aku mimpi buruk, bantu tidur nyenyak dong!"
+            ];
+            const index = Math.floor(Math.random() * randomPesan.length);
+            pesan.innerHTML = randomPesan[index];
+        }
+    </script>
+</body>
+</html>
