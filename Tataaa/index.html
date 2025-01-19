@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahasia Buat Kamu</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: #fff;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #000; /* Ganti warna teks menjadi hitam */
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            animation: fadeIn 2s ease-in-out;
+        }
+        button {
+            margin-top: 20px;
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            color: #ff758c;
+            background: #fff;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+        }
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+            filter: brightness(1.2);
+            background: #ff758c;
+            color: white;
+        }
+        #message {
+            display: none;
+            margin-top: 30px;
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f;
+            animation: popUp 0.6s ease-in-out;
+        }
+        img.sticker {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes popUp {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Stiker GIF -->
+    <img src="https://media.giphy.com/media/3o6gE5aYdZkdM1zDEg/giphy.gif" alt="Stiker GIF" class="sticker">
+
+    <!-- Teks -->
+    <h1>Ada yang mau aku bilang...</h1>
+    <button onclick="clickMe()">Klik untuk tahu</button>
+    <div id="message"></div>
+
+    <script>
+        let clicks = 0;
+        const maxClicks = 5;
+        const messages = [
+            "Sabar dulu...",
+            "Jangan buru-buru ya...",
+            "Udah mulai penasaran?",
+            "Dikit lagi kok...",
+            "Oke, ini dia!"
+        ];
+        const finalMessage = "❤️ Aku suka kamu ❤️";
+
+        function clickMe() {
+            const messageDiv = document.getElementById('message');
+            if (clicks < maxClicks) {
+                messageDiv.innerHTML = messages[clicks];
+                messageDiv.style.display = 'block';
+                clicks++;
+            } else {
+                messageDiv.innerHTML = finalMessage;
+            }
+        }
+    </script>
+</body>
+</html>
